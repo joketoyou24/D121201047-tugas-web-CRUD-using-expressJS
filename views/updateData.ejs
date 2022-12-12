@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
+    <title>Update Data Mahasiswa</title>
+</head>
+<body class="bg-gray-300">
+    <div class="flex-col pt-8 text-center mt-10 bg-white w-64 pb-10 mx-auto rounded-[9px]">
+        <form action="/users/update" method="post">
+            <div>
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" hidden name="id" value="<%= results.id %>">
+            </div>
+            <div>
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="nama" value="<%= results.nama %>">
+            </div>
+            <div class="pt-5 pb-5">
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="nim" value="<%= results.nim %>">
+            </div>
+            <div>
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="departemen" value="<%= results.departemen %>">
+            </div>
+            <div class="pt-5">
+                <input class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 border-b-4 
+                border-gray-700 hover:border-gray-500 rounded cursor-pointer"  type="submit" value="Update">
+            </div>      
+
+    </form>
+    </div>
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>   
+</body>
+</html>
+
+
+

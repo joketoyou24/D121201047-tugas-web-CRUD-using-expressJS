@@ -1,0 +1,63 @@
+<%- include('components/header')%>
+
+    <div class="overflow-x-auto relative">
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6 text-white">Id</td>
+                    <th scope="col" class="py-3 px-6 text-white">Nama</td>
+                    <th scope="col" class="py-3 px-6 text-white">NIM</td>
+                    <th scope="col" class="py-3 px-6 text-white">Departemen</td>
+                    <th scope="col" class="py-3 px-10 text-white">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (i = 0; i < mahasiswa.length; i++) {%>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td class="py-4 px-6 text-white">
+                        <%= i + 1 %> 
+                    </td>
+                    <td class="py-4 px-6 text-white">
+                        <%= mahasiswa[i].nama%>
+                    </td>
+                    <td class="py-4 px-6 text-white">
+                        <%= mahasiswa[i].nim%>
+                    </td>
+                    <td class="py-4 px-6 text-white">
+                        <%= mahasiswa[i].departemen%>
+                    </td>
+                    <form action="/users/remove" method="post">
+                        <td class="py-4 px-6 ">
+                            <a class="py-2 px-2 hover:bg-yellow-700 text-yellow-400 rounded" href="/users/update/<%= mahasiswa[i].id %>">Edit</a>
+                            <input type="text" hidden name="id" value="<%= mahasiswa[i].id %>">
+                            <input class="py-2 px-4 hover:bg-red-700 text-red-400 rounded cursor-pointer" type="submit" value="x">
+                        </td>
+                    </form>
+                </tr>
+            </tbody>
+            <% } %> 
+        </table>
+    </div>
+
+    <div class="flex-col pt-8 text-center mt-10 bg-white w-56 pb-10 mx-auto">
+        <h3 class="font-extrabold text-black">Tambahkan Data</h3>
+        <form action="/users/add" method="post">
+            <div class="pt-5">
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="nama" placeholder="Nama...">
+            </div>
+            <div class="py-3">
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="nim" placeholder="NIM...">
+            </div>
+            <div>
+                <input class="rounded-[9px] border-2 border-black py-1 px-1" type="text" name="departemen" placeholder="Departemen...">
+            </div>                
+            <div class="pt-5">
+                <input class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 border-b-4 
+                border-gray-700 hover:border-gray-500 rounded cursor-pointer"  type="submit" value="Add">
+            </div>
+
+        </form>
+    </div>  
+
+<%- include('components/footer')%>
+
